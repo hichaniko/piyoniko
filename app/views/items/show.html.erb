@@ -1,0 +1,26 @@
+<div class="item">
+  <% if @item.image.attached? %>
+    <%= image_tag @item.image.variant(resize: '500x500'), class: 'message-image' %>
+  <% end %>
+
+  <div class="item-date">
+    <%= @item.created_at %>
+  </div>
+
+  <div class="item-content">
+    <%= @item.text %>
+  </div>
+
+  <ul class="more_list">
+    <li>
+      <%= link_to '編集', edit_item_path(@item) %>
+    </li>
+    <li>
+      <%= link_to '削除', item_path(@item), data: { turbo_method: :delete } %>
+    </li>
+    <%# <% end %>
+    <%# <a href="">
+      <span>投稿者</span><%= @item.user.nickname %>
+    <%# </a> %>
+  </ul>
+</div>

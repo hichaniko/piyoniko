@@ -1,20 +1,42 @@
 class ItemsController < ApplicationController
 
   def index
-    # @items = Item.all
+    @items = Item.all
   end
 
   def new
     @item = Item.new
   end
 
-  def create
+  def create  #保存
     Item.create(item_params)
     redirect_to '/'
   end
+
+  def  destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
+
+  def edit  #編集
+    @item = Item.find(params[:id])
+  end
+
+  def update  #更新
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to root_path
+  end
+
+  def show   #詳細
+    @item = Item.find(params[:id])
+  end
+
 
   private
   def item_params
     params.require(:item).permit(:text, :image).merge(user_id: current_user.id)
   end
+
 end
