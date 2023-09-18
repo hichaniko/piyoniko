@@ -27,9 +27,7 @@
         <%= link_to '削除', item_path(item.id), data: { turbo_method: :delete } %>
       </li>
       <%# <% end %> 
-      <%# <a href="">
-          <span>投稿者</span><%= item.user.nickname %>
-        <%# </a> %> 
+      <%# <a href="/users/<%= item.user.id %>
     </ul>
   </div>
 
