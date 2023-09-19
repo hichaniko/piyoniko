@@ -1,0 +1,28 @@
+<div class="area">
+  <% if @area.image.attached? %>
+    <%= image_tag @area.image.variant(resize: '500x500'), class: 'message-image' %>
+  <% end %>
+
+  <div class="area-date">
+    <%= @area.created_at %>
+  </div>
+
+  <div class="area-content">
+    <%= @area.area_text %>
+  </div>
+
+  <ul class="more_list">
+    <li>
+      <%= link_to '編集', edit_area_path(@area) %>
+    </li>
+    <li>
+      <%= link_to '削除', area_path(@area), data: { turbo_method: :delete } %>
+    </li>
+
+    <%# <span class="name">
+      <a href="/users/<%= @item.user.id %>
+        <%# <span>投稿者</span><%= @item.user.nickname %>
+      <%# </a> %> 
+    <%# </span> %> 
+  </ul>
+</div>
