@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :areas
+
+  has_many :comments  # commentsテーブルとのアソシエーション
 end
