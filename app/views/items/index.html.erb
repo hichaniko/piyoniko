@@ -1,3 +1,24 @@
+ <div class="side-bar-header">
+<div class="header-name">
+    <%# <%= link_to current_user.name, edit_user_path(current_user) %> 
+  </div>
+  <div class="create-room">
+    <%# <%= link_to "チャットを作成する", new_room_path %>
+  </div>
+</div>
+
+<div class="rooms">
+   <% current_user.rooms.each do |room| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to room.name, room_messages_path(room) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+ 
+ <%= link_to 'エリア', areas_path%>
+
 <% @items.each do |item| %>
  <%=item.user.nickname%> 
  <div class="item"> 
@@ -35,40 +56,4 @@
 </div>
 <% end %>
 
-
-<% @areas.each do |area| %>
- <%=area.user.nickname%>
- <div class="area">  
-   <% if area.image.attached? %>
-   <%= image_tag area.image.variant(resize: '500x500'), class: 'message-image' if area.image.attached? %>
-    <% end %>
-
-    <div class="area-date">
-      <%= area.created_at %>
-    </div>
-
-    <div class="area-content">
-      <%= area.area_text %>
-    </div>
-
-    
-
-    <ul class="more_list">
-
-     <li>
-      <%= link_to '詳細', area_path(area.id) %>
-     </li>
-
-     <li>
-      <%= link_to '編集', edit_area_path(area.id) %>
-     </li>
-
-     <li>
-      <%= link_to '削除', area_path(area.id), data: { turbo_method: :delete } %>
-     </li>
-    </ul>
-
-</div>
-</div>
-<% end %>
 
