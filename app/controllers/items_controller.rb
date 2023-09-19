@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @areas = Area.all
+  
   end
 
   def new
