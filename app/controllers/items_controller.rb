@@ -32,6 +32,8 @@ class ItemsController < ApplicationController
 
   def show   #詳細
     @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
 
