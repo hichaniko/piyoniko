@@ -1,36 +1,36 @@
-<% @areas.each do |area| %>
- <%=area.user.nickname%>
- <div class="area">  
-   <% if area.image.attached? %>
-   <%= image_tag area.image.variant(resize: '500x500'), class: 'message-image' if area.image.attached? %>
-    <% end %>
 
-    <div class="area-date">
-      <%= area.created_at %>
-    </div>
+<div class="messages">
+  <% @areas.each do |area| %>
 
-    <div class="area-content">
-      <%= area.area_text %>
-    </div>
-
+  <div class="item-main">
     
+  <div class="item"> 
+   <%=area.user.nickname%> 
 
-    <ul class="more_list">
+  <div class="item-date">
+    <%= area.created_at %>
+  </div> 
 
-     <li>
-      <%= link_to '詳細', area_path(area.id) %>
-     </li>
+  <div class="item-content">
+     <%= area.area_text %>
+  </div>
 
-     <li>
-      <%= link_to '編集', edit_area_path(area.id) %>
-     </li>
+  <% if area.image.attached? %>
+    <%= image_tag area.image.variant(resize: '500x500'), class: 'message-image' if area.image.attached? %>
+  <% end %>
 
-     <li>
-      <%= link_to '削除', area_path(area.id), data: { turbo_method: :delete } %>
-     </li>
-    </ul>
-
+<ul class="more_list">
+  
+     <%= link_to '詳細', area_path(area.id) %>
+<%# <% if user_signed_in? && current_user.id == item.user_id %> 
+     <%= link_to '編集', edit_area_path(area.id) %>
+     <%= link_to '削除', area_path(area.id), data: { turbo_method: :delete } %>
+<%# <% end %> 
+<%# <a href="/users/<%= item.user.id %>
+  </ul>
 </div>
 </div>
+
+<hr class="hr1">
+
 <% end %>
-

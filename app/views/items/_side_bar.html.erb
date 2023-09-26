@@ -1,0 +1,17 @@
+<div class="side-bar">
+ <div class="side-header">
+  <h1 class="grid-6"><a href="/">ぴよピヨ</a></h1>
+  <%=image_tag('piyo.jpg', size: '100x100')%> 
+ </div>
+
+  <div class="toukou">
+   <%=image_tag('pen.jpg', size: '50x50')%> 
+    <div><%= link_to "投稿する", new_item_path, class: "post" %></div>
+  </div>
+
+ <div class="side-footer">
+   <%=image_tag('kuma.jpg', size: '40x40')%> 
+  <div><%= link_to 'エリアチャット', areas_path,class: "chat-area"%></div>
+ </div>
+ 
+</div>

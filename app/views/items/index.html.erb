@@ -1,59 +1,12 @@
- <div class="side-bar-header">
-<div class="header-name">
-    <%# <%= link_to current_user.name, edit_user_path(current_user) %> 
-  </div>
-  <div class="create-room">
-    <%# <%= link_to "チャットを作成する", new_room_path %>
-  </div>
-</div>
-
-<div class="rooms">
-   <% current_user.rooms.each do |room| %>
-    <div class="room">
-      <div class="room-name">
-        <%= link_to room.name, room_messages_path(room) %>
-      </div>
-    </div>
-  <% end %>
-</div>
- 
- <%= link_to 'エリア', areas_path%>
-
-<% @items.each do |item| %>
- <%=item.user.nickname%> 
- <div class="item"> 
-   <% if item.image.attached? %>
-   <%= image_tag item.image.variant(resize: '500x500'), class: 'message-image' if item.image.attached? %>
-    <% end %>
-
-
-    <div class="item-date">
-      <%= item.created_at %>
+  <div class='wrapper'>
+    <div class='side-bar'>
+      <%= render "side_bar" %>
     </div>
 
-    <div class="item-content">
-      <%= item.text %>
+    <div class="chat">
+     <%= render "main_chat" %>
     </div>
-
-   <ul class="more_list">
-      <li> 
-        <%= link_to '詳細', item_path(item.id) %>
-      </li>
-      <%# <% if user_signed_in? && current_user.id == item.user_id %> 
-      <li>
-        <%= link_to '編集', edit_item_path(item.id) %>
-      </li>
-      <li>
-        <%= link_to '削除', item_path(item.id), data: { turbo_method: :delete } %>
-      </li>
-      <%# <% end %> 
-      <%# <a href="/users/<%= item.user.id %>
-    </ul>
   </div>
 
-    
-  </div>
-</div>
-<% end %>
-
+          
 

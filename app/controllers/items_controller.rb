@@ -36,6 +36,9 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
   end
 
+  def search  #検索
+    @items = Item.search(params[:keyword])
+  end
 
   private
 
